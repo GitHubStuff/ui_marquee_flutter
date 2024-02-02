@@ -1,10 +1,12 @@
 // ignore_for_file: sort_child_properties_last
 
 import 'package:flutter/material.dart';
+import 'package:ui_marquee_flutter/ui_marguee_flutter.dart';
 
 import '../gen/assets.gen.dart';
 
-import 'package:package_template/package_template.dart';
+const String message =
+    'Lorem ipsum dolor sit amet, consectetur adipiscing elit.';
 
 class HomeScaffold extends StatelessWidget {
   const HomeScaffold({super.key});
@@ -18,10 +20,6 @@ class HomeScaffold extends StatelessWidget {
   }
 
   Widget homeWidget(BuildContext context) {
-    //TODO: Replace with your own code
-    // ignore: non_constant_identifier_names
-    final PackageTemplate package_template = PackageTemplate();
-    debugPrint('$package_template');
     return Center(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -34,6 +32,14 @@ class HomeScaffold extends StatelessWidget {
               child: Assets.images.ltmm1024x1024.image(),
             ),
           ),
+          const SizedBox(height: 20),
+          const Padding(
+            padding: EdgeInsets.all(8.0),
+            child: UIMarqueeWidget(
+              message: message,
+              textStyle: TextStyle(fontSize: 28.0),
+            ),
+          )
         ],
       ),
     );

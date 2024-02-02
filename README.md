@@ -1,8 +1,6 @@
-# SETUP
+# INTRO
 
-- Find/Replace `package_template` to name of the name of the package (ex: `flutter_rocks`)
-- Addess the *TODO:* in the **/example** folder by adding code from the package
-- If needed/wanted follow the instructions in the **/example/README.md** to have the example app more reflective of your package and show off features of widget packages.
+This is an extension on [marquee: ^2.2.3](https://github.com/MarcelGarus/marquee.git), but for LTMM projects.
 
 <!--
 The comments below are from the Flutter/Dart package generation. Feel free to use or ignore
@@ -21,29 +19,62 @@ and the Flutter guide for
 [developing packages and plugins](https://flutter.dev/developing-packages).
 -->
 
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
+## Install
+
+```yaml
+dev_dependencies:
+  ui_marquee_flutter:
+    git: https://github.com/GitHubStuff/ui_marquee_flutter.git
+```
 
 ## Features
 
-TODO: List what your package can do. Maybe include images, gifs, or videos.
+Text to long to fit on the screen/container will animate the text right to left.
+If the text fits, there is no animation unless overridden.
 
 ## Getting started
 
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
+```dart
+UIMarqueeWidget(
+    message: 'Some Long text, that might not fit',
+    textStyle: TextStyle(fontSize: 28.0),
+  ),
+```
 
 ## Usage
 
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder.
-
-```dart
-const like = 'sample';
-```
+For examples go to `/example` folder.
 
 ## Additional information
 
-TODO: Tell users more about the package: where to find more information, how to
-contribute to the package, how to file issues, what response they can expect
-from the package authors, and more.
+Widget declaration:
+
+```dart
+  /// Creates a [UIMarqueeWidget] widget with the specified [message] and [textStyle].
+  ///
+  /// The [message] parameter is required and represents the text to be displayed.
+  ///
+  /// The [forceScroll] parameter is optional and allows you to force the text to scroll
+  ///
+  /// The [pauseDuration] parameter is optional and allows you to customize the pause between scrolls
+  ///
+  /// The [rolloverPercentage] parameter is optional and allows you to customize the amount of rollover
+  ///
+  /// The [scrollVelocityInPixelsPerSecond] parameter is optional and allows you to customize the scroll velocity
+  ///
+  /// The [textStyle] parameter is optional and allows you to customize the text
+  /// style of the message.
+  const UIMarqueeWidget({
+    super.key,
+    required this.message,
+    this.pauseDuration = _kPauseDuration,
+    this.rolloverPercentage = _kRolloverPercentage,
+    this.scrollVelocityInPixelsPerSecond = _kVelocity,
+    this.textStyle,
+    this.forceScroll = false,
+  });
+```
+
+## Finally
+
+Be kind to each other!
